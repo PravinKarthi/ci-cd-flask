@@ -17,12 +17,18 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '7.4'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          # Use 'pip install' without specifying the virtual env path, which is generally fine 
+          # in the GitHub Actions runner environment.
           pip install -r requirements.txt
-
+          
       - name: Run tests
-        run: pytest
+        run: |
+          # 💡 FIX: Run pytest using the 'python -m' flag
+          # This tells Python to run the 'pytest' module directly, 
+          # which is guaranteed to be in the path after 'pip install'.
+          python -m pytest -q
