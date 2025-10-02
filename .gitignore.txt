@@ -1,7 +1,0 @@
-# Content of .gitignore
-__pycache__/
-*.pyc
-.env
-.venv/
-.vscode/
-jenkins_home/
