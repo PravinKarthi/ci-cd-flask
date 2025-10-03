@@ -19,17 +19,11 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Install dependencies and Run tests # New combined step
         run: |
+          # 1. Install dependencies
           python -m pip install --upgrade pip
-          # Use 'pip install' without specifying the virtual env path, which is generally fine 
-          # in the GitHub Actions runner environment.
-          # 💡 FIX: Ensure pip is run by the Python interpreter to install dependencies
-          python -m pip install -r requirements.txt 
+          python -m pip install -r requirements.txt
           
-      - name: Run tests
-        run: |
-          # 💡 FIX: Run pytest using the 'python -m' flag
-          # This tells Python to run the 'pytest' module directly, 
-          # which is guaranteed to be in the path after 'pip install'.
+          # 2. Run tests in the SAME shell environment
           python -m pytest -q
