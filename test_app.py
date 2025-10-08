@@ -1,5 +1,5 @@
 import pytest
-from app import app
+import app # <--- Use the direct import
 
 def test_home():
     client = app.test_client()
