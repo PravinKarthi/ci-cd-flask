@@ -27,5 +27,5 @@ jobs:
           pip install pytest
           
           # 2. Run tests in the SAME shell environment
-          python app.py
+          
           python -m pytest -q
