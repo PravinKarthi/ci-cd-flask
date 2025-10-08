@@ -24,4 +24,8 @@ jobs:
           # 1. Install dependencies
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
+          pip install pytest
           
+          # 2. Run tests in the SAME shell environment
+          python app.pys
+          python -m pytest -q
